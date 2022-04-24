@@ -1,5 +1,5 @@
 .form-container {
-    width: 60vw;
+    width: 100vw;
     height: 100vh;
     background-color: black;
     font-family: "GTAmericaMono";
@@ -74,6 +74,7 @@
         border-radius: 20px;
         border: none;
         height: 2rem;
+        padding-left: 0.5rem;
     }
     .event-textarea {
         height: 6.5rem;
