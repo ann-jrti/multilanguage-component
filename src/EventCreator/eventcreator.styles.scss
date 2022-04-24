@@ -1,0 +1,112 @@
+.form-container {
+    width: 60vw;
+    height: 100vh;
+    background-color: black;
+    font-family: "GTAmericaMono";
+    font-size: 0.8rem;
+    display: flex;
+    justify-content: center;
+}
+
+//lang tabs
+
+.event__lang-tabs-container {
+    display: flex;
+    width: 80%;
+}
+
+.event__lang-tab {
+    text-transform: uppercase;
+    width: 10vw;
+    height: 3.5rem;
+    font-weight: bold;
+    border: none;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: #c8c8c8;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.event__lang-text {
+    font-size: 0.8rem;
+    margin-right: 2.5rem;
+}
+
+.event__lang-tab-current-lang {
+    background-color: #383636;
+    color: white;
+}
+
+//event inputs
+
+.event__data-container {
+    height: 20rem;
+    width: 90%;
+    background-color: #383636;
+    padding: 1.5rem;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.event-name,
+.event-capacity,
+.event-description,
+.event-title,
+.event-subtitle {
+    display: flex;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+
+    .event-label {
+        color: white;
+        text-transform: uppercase;
+    }
+
+    .event-input,
+    .event-textarea {
+        width: 100%;
+        border-radius: 20px;
+        border: none;
+        height: 2rem;
+    }
+    .event-textarea {
+        height: 6.5rem;
+    }
+}
+
+.event-name,
+.event-capacity {
+    .event-input {
+        width: 80%;
+    }
+}
+
+//submit btn
+
+.event__submit-container {
+    display: flex;
+    justify-content: center;
+}
+
+.event__submit {
+    display: flex;
+    align-items: center;
+    height: 1.8rem;
+    border: none;
+    border-radius: 20px;
+    padding: 1.2rem 1.6rem;
+    background-color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: black;
+
+    &:hover {
+        cursor: pointer;
+    }
+}

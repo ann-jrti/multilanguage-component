@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: 'GTAmericaMono';
+  src: local('GTAmericaMono'),
+    url('./font/GTAmericaMono-Regular.ttf') format('truetype');
+  font-weight: regular;
+}
