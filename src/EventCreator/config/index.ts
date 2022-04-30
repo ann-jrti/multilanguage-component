@@ -21,4 +21,4 @@ export interface eventStructure {
   capacity: number;
 }
 
-export type languageOption = 'EN' | 'ES' | 'CA' | 'PT';
+export type languageOption = 'en' | 'es' | 'ca' | 'pt';

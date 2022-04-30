@@ -26,12 +26,12 @@ const payload: eventStructure = {
 };
 
 export const EventCreator: React.FC = () => {
-  const [selectedLang, setSelectedLang] = useState('EN');
+  const [selectedLang, setSelectedLang] = useState('en');
   const [eventName, setEventName] = useState('');
   const [capacity, setCapacity] = useState('');
   const [, displayUserInput] = useState('');
 
-  const languageOptions: languageOption[] = ['EN', 'ES', 'CA', 'PT'];
+  const languageOptions: languageOption[] = ['en', 'es', 'ca', 'pt'];
 
   const handleSubmit = (e: any) => {
     e.preventDefault();
@@ -42,10 +42,11 @@ export const EventCreator: React.FC = () => {
   };
 
   const setEventInfoInLangs = (e: any, payload: any) => {
-    if (selectedLang === 'EN') Object.assign(payload, { en: e.target.value });
-    if (selectedLang === 'ES') Object.assign(payload, { es: e.target.value });
-    if (selectedLang === 'CA') Object.assign(payload, { ca: e.target.value });
-    if (selectedLang === 'PT') Object.assign(payload, { pt: e.target.value });
+    if (selectedLang === 'en') Object.assign(payload, { en: e.target.value });
+    if (selectedLang === 'es') Object.assign(payload, { es: e.target.value });
+    if (selectedLang === 'ca') Object.assign(payload, { ca: e.target.value });
+    if (selectedLang === 'pt') Object.assign(payload, { pt: e.target.value });
+    console.log(payload);
   };
 
   const handleInput = (e: any, payload: any) => {
@@ -58,25 +59,9 @@ export const EventCreator: React.FC = () => {
     setSelectedLang(e.target.outerText);
   };
 
-  const getTitleInMatchedLang = () => {
-    if (selectedLang === 'EN') return payload.title.en;
-    if (selectedLang === 'ES') return payload.title.es;
-    if (selectedLang === 'CA') return payload.title.ca;
-    if (selectedLang === 'PT') return payload.title.pt;
-  };
-
-  const getSubtitleInMatchedLang = () => {
-    if (selectedLang === 'EN') return payload.subtitle.en;
-    if (selectedLang === 'ES') return payload.subtitle.es;
-    if (selectedLang === 'CA') return payload.subtitle.ca;
-    if (selectedLang === 'PT') return payload.subtitle.pt;
-  };
-
-  const getDescriptionInMatchedLang = () => {
-    if (selectedLang === 'EN') return payload.description.en;
-    if (selectedLang === 'ES') return payload.description.es;
-    if (selectedLang === 'CA') return payload.description.ca;
-    if (selectedLang === 'PT') return payload.description.pt;
+  const getInputValueInMatchedLang = (key: string) => {
+    // @ts-ignore
+    return payload[key][selectedLang];
   };
 
   return (
@@ -99,7 +84,9 @@ export const EventCreator: React.FC = () => {
                 <button
                   onClick={handleClick}
                   className={`event__lang-tab ${
-                    selectedLang === lang ? 'event__lang-tab-current-lang' : ''
+                    selectedLang.toLowerCase() === lang.toLowerCase()
+                      ? 'event__lang-tab-current-lang'
+                      : ''
                   }`}
                   key={lang}
                 >
@@ -116,7 +103,7 @@ export const EventCreator: React.FC = () => {
             <input
               type="text"
               className="event-input"
-              value={getTitleInMatchedLang()}
+              value={getInputValueInMatchedLang('title')}
               onChange={(e) => handleInput(e, payload.title)}
             ></input>
           </div>
@@ -126,7 +113,7 @@ export const EventCreator: React.FC = () => {
             <input
               type="text"
               className="event-input"
-              value={getSubtitleInMatchedLang()}
+              value={getInputValueInMatchedLang('subtitle')}
               onChange={(e) => handleInput(e, payload.subtitle)}
             ></input>
           </div>
@@ -135,7 +122,7 @@ export const EventCreator: React.FC = () => {
             <label className="event-label">Description</label>
             <textarea
               className="event-textarea"
-              value={getDescriptionInMatchedLang()}
+              value={getInputValueInMatchedLang('description')}
               onChange={(e: any) => handleInput(e, payload.description)}
             ></textarea>
           </div>
