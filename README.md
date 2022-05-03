@@ -1,46 +1,65 @@
-# Getting Started with Create React App
+# Web Developer Test
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The purpose of this exercise was to show my ability to create a functional, modern and user friendly component. The application should be written in HTML5 that passes W3C validation, use CSS3 and support modern browsers. Technology stack:
+- JavaScript
+- React.js/TypeScript
+- CSS3: You can use preprocessors (SASS or LESS), Styled Components. Using Tailwinds would be a plus
+- HTML5
+  
+## The test
 
-## Available Scripts
+You have been asked to create a multilanguage component.
 
-In the project directory, you can run:
+It must accept 4 languages, english, spanish, catalan and portuguese.
 
-### `npm start`
+All languages should be displayed in tabs.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Caveats: have in mind that `eventName` and `capacity` are not multilang, capacity is a number.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The component must submit a payload with the following schema:
 
-### `npm test`
+```javascript
+const payload: {
+  eventName: '',
+  title: {
+    en: '', 
+    es: '',
+    ca: '',
+    pt: '',
+  },
+  subtitle: {
+    en: '', 
+    es: '',
+    ca: '',
+    pt: '',
+  },
+  description: {
+    en: '', 
+    es: '',
+    ca: '',
+    pt: '',
+  },
+  capacity: 0
+}
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Acceptance criteria
 
-### `npm run build`
+GIVEN that I'm a user
+WHEN I render the component
+THEN the english language is showed by default
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+GIVEN that I'm a user
+WHEN I click on the ES or any other language tab
+THEN I see the content of the form in that language
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+GIVEN that I'm a user
+WHEN I fill the data
+AND click on the create button
+THEN I see console.log with the payload
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+Design: 
+![test-2ewd](https://user-images.githubusercontent.com/84371647/166450160-e62dda12-8b99-4a6a-a5ee-83d4069f5afb.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
